@@ -2,10 +2,10 @@
 #
 rm -rf .tmp/ || true
 
-TAG_VERSION="3.6.0"
-IOS_URL="https://download.videolan.org/pub/cocoapods/prod/MobileVLCKit-3.6.0-c73b779f-dd8bfdba.tar.xz"
-MACOS_URL="https://download.videolan.org/pub/cocoapods/prod/VLCKit-3.6.0-c73b779f-dd8bfdba.tar.xz"
-TVOS_URL="https://download.videolan.org/cocoapods/prod/TVVLCKit-3.6.0-c73b779f-dd8bfdba.tar.xz"
+TAG_VERSION="4.0.0a11"
+IOS_URL="https://download.videolan.org/cocoapods/unstable/MobileVLCKit-4.0.0a2-b9e9412c-105babe3.tar.xz"
+MACOS_URL="https://download.videolan.org/cocoapods/unstable/VLCKit-4.0.0a11-7e0c08ff-1cdaca9e.tar.xz"
+TVOS_URL="https://download.videolan.org/cocoapods/unstable/TVVLCKit-4.0.0a2-b9e9412c-105babe3.tar.xz"
 
 mkdir .tmp/
 
