@@ -2,10 +2,10 @@
 #
 rm -rf .tmp/ || true
 
-TAG_VERSION="3.6.0"
-IOS_URL="https://download.videolan.org/pub/cocoapods/prod/MobileVLCKit-3.6.0-c73b779f-dd8bfdba.tar.xz"
-MACOS_URL="https://download.videolan.org/pub/cocoapods/prod/VLCKit-3.6.0-c73b779f-dd8bfdba.tar.xz"
-TVOS_URL="https://download.videolan.org/cocoapods/prod/TVVLCKit-3.6.0-c73b779f-dd8bfdba.tar.xz"
+TAG_VERSION="4.0.0a11"
+IOS_URL="https://download.videolan.org/pub/cocoapods/unstable/MobileVLCKit-3.6.0b1-3092d08b-4c12f2ea.tar.xz"
+MACOS_URL="https://download.videolan.org/cocoapods/unstable/VLCKit-4.0.0a11-7e0c08ff-1cdaca9e.tar.xz"
+TVOS_URL="https://download.videolan.org/cocoapods/unstable/TVVLCKit-3.6.0b1-3092d08b-4c12f2ea.tar.xz"
 
 mkdir .tmp/
 
@@ -23,7 +23,7 @@ tar -xf .tmp/TVVLCKit.tar.xz -C .tmp/
 
 IOS_LOCATION=".tmp/MobileVLCKit-binary/MobileVLCKit.xcframework"
 TVOS_LOCATION=".tmp/TVVLCKit-binary/TVVLCKit.xcframework"
-MACOS_LOCATION=".tmp/VLCKit - binary package/VLCKit.xcframework"
+MACOS_LOCATION=".tmp/VLCKit-binary/VLCKit.xcframework"
 
 #Merge into one xcframework
 xcodebuild -create-xcframework \
@@ -43,7 +43,7 @@ ditto -c -k --sequesterRsrc --keepParent ".tmp/VLCKit-all.xcframework" ".tmp/VLC
 
 #Update package file
 PACKAGE_HASH=$(sha256sum ".tmp/VLCKit-all.xcframework.zip" | awk '{ print $1 }')
-PACKAGE_STRING="Target.binaryTarget(name: \"VLCKit-all\", url: \"https:\/\/github.com\/tylerjonesio\/vlckit-spm\/releases\/download\/$TAG_VERSION\/VLCKit-all.xcframework.zip\", checksum: \"$PACKAGE_HASH\")"
+PACKAGE_STRING="Target.binaryTarget(name: \"VLCKit-all\", url: \"https:\/\/github.com\/crystailx\/vlckit-spm\/releases\/download\/$TAG_VERSION\/VLCKit-all.xcframework.zip\", checksum: \"$PACKAGE_HASH\")"
 echo "Changing package definition for xcframework with hash $PACKAGE_HASH"
 sed -i '' -e "s/let vlcBinary.*/let vlcBinary = $PACKAGE_STRING/" Package.swift
 
